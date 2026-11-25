@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link,useNavigate } from 'react-router-dom';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,sendEmailVerification } from "firebase/auth";
   import { ToastContainer, toast } from 'react-toastify';
   import { Vortex } from 'react-loader-spinner'
 
@@ -60,7 +60,8 @@ setEmailerror('')
   .then((userCredential) => {
     
     
-    
+    sendEmailVerification(auth.currentUser)
+
     toast('Registration Successfully')
     
     setTimeout(()=>{
